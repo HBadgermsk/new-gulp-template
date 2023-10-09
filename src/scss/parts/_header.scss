@@ -1,0 +1,143 @@
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, .5);
+  z-index: 9999;
+  transition: box-shadow .3s;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  transition: padding-top .3s, padding-bottom .3s;
+}
+
+.header__burger-btn {
+  display: none;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: transparent;
+  z-index: 2;
+}
+
+.header__burger-btn span {
+  position: absolute;
+  width: 30px;
+  height: 3px;
+  background-color: black;
+  left: 5px;
+  transition: transform .5s, opacity .5s, background-color .5s;
+}
+
+.header__burger-btn span:nth-child(1) {
+  transform: translateY(-10px);
+}
+
+.header__burger-btn span:nth-child(3) {
+  transform: translateY(10px);
+}
+
+.header.open .header__burger-btn span {
+  background-color: !important;
+}
+
+.header.open .header__burger-btn span:nth-child(1) {
+  transform: translateY(0) rotate(45deg);
+}
+
+.header.open .header__burger-btn span:nth-child(2) {
+  opacity: 0;
+}
+
+.header.open .header__burger-btn span:nth-child(3) {
+  transform: translateY(0) rotate(-45deg);
+}
+
+.header_mini {
+  box-shadow: 0px 0px 30px -11px rgba(0, 0, 0, 0.8);
+}
+
+.header_mini .header__container {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.logo {
+  display: block;
+}
+
+.menu__list {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu__item:not(:last-child) {
+  margin-right: 20px;
+}
+
+.menu__link {
+  font-size: 16px;
+}
+
+.cats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+
+@media (max-width: 992px) {
+  .header__burger-btn {
+    display: block;
+  }
+
+  .menu {
+    background-color: rgba(255, 255, 255, .9);
+    position: absolute;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    padding: 20px 10px;
+    margin-top: 50px;
+    transition: transform .5s;
+    border-radius: 0 0 10px 0;
+  }
+
+  .menu__list {
+    display: block;
+  }
+
+  .menu__link {
+    color: !important;
+    font-size: 21px;
+    display: block;
+    padding: 10px;
+  }
+
+  .menu__link:hover {
+    background-color: var(--accent);
+    color: var(--page-bg);
+    transition: background-color .5s, color .5s;
+  }
+
+  .header.open .menu {
+    transform: translateX(100%);
+  }
+}

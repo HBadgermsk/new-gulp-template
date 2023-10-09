@@ -1,0 +1,13 @@
+/* Base */
+@import "./base/reset";
+@import "./base/vars";
+@import "./base/base";
+
+/* Blocks */
+@import "./parts/*.scss";
+
+.lololi {
+  display: block;
+  max-width: 680px;
+  margin: 0 auto;
+}
